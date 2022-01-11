@@ -1,6 +1,6 @@
 pipeline{
     agent{
-        label "aws"
+        label "aws1"
     }
     tools{
         maven 'mavenhome' 
@@ -19,7 +19,7 @@ pipeline{
         }
         stage("Deploy"){
             steps{
-                deploy adapters: [tomcat9(credentialsId: '5f91bcd4-9eb2-4549-82db-7ea46f48cde5', path: '', url: 'http://3.138.109.59:8081')], contextPath: 'MyApp', war: '**/*.war'
+                deploy adapters: [tomcat9(credentialsId: '48cad2b3-6227-489d-83a4-e3508346fbc3', path: '', url: 'http://18.191.122.250:8080')], contextPath: 'MyApp', war: '**/*.war'
             }  
         }
     }
@@ -35,4 +35,3 @@ pipeline{
         }
     }
 }
-

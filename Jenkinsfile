@@ -21,13 +21,18 @@ pipeline{
             steps{
                 deploy adapters: [tomcat9(credentialsId: '48cad2b3-6227-489d-83a4-e3508346fbc3', path: '', url: 'http://18.191.122.250:8080')], contextPath: 'Hello-Dev', war: '**/*.war'
             }  
-        }
-		stage("Deploy on Test"){
+          }
+        stage("Deploy on Test"){
             steps{
                 deploy adapters: [tomcat9(credentialsId: '48cad2b3-6227-489d-83a4-e3508346fbc3', path: '', url: 'http://18.191.122.250:8080')], contextPath: 'Hello-Test', war: '**/*.war'
             }  
-        }
-		stage("Deploy on PROD"){
+         }
+	  stage("Deploy on PROD"){
+		  input{
+			  message "should we continue"
+			  ok "Yes we should"
+		  }
+			
             steps{
                 deploy adapters: [tomcat9(credentialsId: '48cad2b3-6227-489d-83a4-e3508346fbc3', path: '', url: 'http://18.191.122.250:8080')], contextPath: 'Hello-Prod', war: '**/*.war'
             }  

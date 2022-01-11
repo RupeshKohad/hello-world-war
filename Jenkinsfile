@@ -17,9 +17,19 @@ pipeline{
                 sh 'mvn package'
             }  
         }
-        stage("Deploy"){
+        stage("Deploy on Dev"){
             steps{
-                deploy adapters: [tomcat9(credentialsId: '48cad2b3-6227-489d-83a4-e3508346fbc3', path: '', url: 'http://18.191.122.250:8080')], contextPath: 'Hello-World', war: '**/*.war'
+                deploy adapters: [tomcat9(credentialsId: '48cad2b3-6227-489d-83a4-e3508346fbc3', path: '', url: 'http://18.191.122.250:8080')], contextPath: 'Hello-Dev', war: '**/*.war'
+            }  
+        }
+		stage("Deploy on Test"){
+            steps{
+                deploy adapters: [tomcat9(credentialsId: '48cad2b3-6227-489d-83a4-e3508346fbc3', path: '', url: 'http://18.191.122.250:8080')], contextPath: 'Hello-Test', war: '**/*.war'
+            }  
+        }
+		stage("Deploy on PROD"){
+            steps{
+                deploy adapters: [tomcat9(credentialsId: '48cad2b3-6227-489d-83a4-e3508346fbc3', path: '', url: 'http://18.191.122.250:8080')], contextPath: 'Hello-Prod', war: '**/*.war'
             }  
         }
     }

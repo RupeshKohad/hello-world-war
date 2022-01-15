@@ -18,7 +18,7 @@
 <!-- Optional URL to server. Default value is http://localhost:9000 -->
 <sonar.host.url>http://localhost:9000</sonar.host.url>
 <sonar.projectKey>myapp</sonar.projectKey>
-<sonar.login>50c0f262ee0f5907b10d87b2ccfaebc428b29bd7</sonar.login>
+<sonar.login>7f389106b9b153c80f98afc4ba5ccb78b9541b19</sonar.login>
  <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
  <sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}\jacoco-it.exec</sonar.coverage.jacoco.xmlReportPaths>
 </properties>
